@@ -41,3 +41,37 @@ faq_section_data_pytest = []
 for index, data in faq_section_data.items():
     faq_section_data_pytest.append((index, data["question"], data["answer"]))
 
+
+# Личные данные пользователя 1
+personal_data_1 = {
+    "first_name": "Гарри",
+    "last_name": "Поттер",
+    "address": "Тисовая, 4",
+    "metro_station": "Чистые пруды",
+    "phone_number": "+79672456405",
+}
+
+# Личные данные пользователя 2
+personal_data_2 = {
+    "first_name": "Том",
+    "last_name": "Реддл",
+    "address": "Годрикс Холлоу, 2",
+    "metro_station": "Лубянка",
+    "phone_number": "+79672456123",
+}
+
+# Детали заказа для пользователя 1
+order_data_1 = {
+    "start_date": "",
+    "number_of_days": "сутки",
+    "scooter_color": "чёрный жемчуг",
+    "comment": "",
+}
+
+# Детали заказа для пользователя 2
+order_data_2 = {
+    "start_date": "",
+    "number_of_days": "трое суток",
+    "scooter_color": "серая безысходность",
+    "comment": "Осторожно, злая змея",
+}

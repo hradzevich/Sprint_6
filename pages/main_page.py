@@ -27,6 +27,4 @@ class MainPage(BasePage):
         self.wait_for_element_is_visible(MainPageLocators.answer_number(index))
         return self.get_text_on_element(MainPageLocators.answer_number(index))
 
-    @allure.step("Кликнуть на кнопку 'Заказать'")
-    def open_order_page(self, locator):
-        self.click_element(locator)
+    

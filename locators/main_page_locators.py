@@ -31,14 +31,4 @@ class MainPageLocators:
             f".//div[@data-accordion-component='AccordionItemPanel' and @id='accordion__panel-{index}']/p",
         )
     
-    # Кнопка "Заказать" в верхней части страницы (header)
-    UP_ORDER_BTN = (
-        By.XPATH,
-        ".//div[@class='Header_Nav__AGCXC']/button[text()='Заказать']",
-    )
 
-    # Кнопка "Заказать" перед блоком FAQ
-    DOWN_ORDER_BTN = (
-        By.XPATH,
-        ".//div[@class='Home_FinishButton__1_cWm']/button[text()='Заказать']",
-    )

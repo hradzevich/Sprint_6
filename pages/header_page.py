@@ -1,5 +1,4 @@
 import allure
-from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 from locators.header_page_locators import HeaderPageLocators
 from data import *

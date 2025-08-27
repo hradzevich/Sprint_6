@@ -8,17 +8,32 @@ from selenium.webdriver.common.by import By
 
 class OrderPageLocators:
 
+    # Кнопка "Заказать" в верхней части страницы (header)
+    HEADER_ORDER_BTN = (
+        By.XPATH,
+        ".//div[@class='Header_Nav__AGCXC']/button[text()='Заказать']",
+    )
+
+    # Кнопка "Заказать" перед блоком "Вопросы о важном"
+    MAIN_ORDER_BTN = (
+        By.XPATH,
+        ".//div[@class='Home_FinishButton__1_cWm']/button[text()='Заказать']",
+    )
+
     #  Поле "Имя" на форме "Для кого самокат"
     FIRST_NAME = (By.XPATH, ".//input[@placeholder='* Имя']")
 
     #  Поле "Фамилия" на форме "Для кого самокат"
-    SECOND_NAME = (By.XPATH, ".//input[@placeholder='* Фамилия']")
+    LAST_NAME = (By.XPATH, ".//input[@placeholder='* Фамилия']")
 
     #  Поле "Адрес" на форме "Для кого самокат"
     ADDRESS = (By.XPATH, ".//input[@placeholder='* Адрес: куда привезти заказ']")
 
-    #  Выпадающий список с автозаполнением "Станция метро" на форме "Для кого самокат"
+    #  Поле с выпадающим списком "Станция метро" на форме "Для кого самокат"
     METRO_STATION = (By.CLASS_NAME, "select-search__value")
+
+    #  Выпадающий список с автозаполнением "Станция метро" на форме "Для кого самокат"
+    METRO_STATION_LST = (By.CLASS_NAME, "select-search__select")
 
     #  Поле "Телефон" на форме "Для кого самокат"
     PHONE_NUMBER = (
@@ -27,7 +42,7 @@ class OrderPageLocators:
     )
 
     #  Кнопка "Далее" на форме "Для кого самокат"
-    PHONE_NUMBER = (By.XPATH, ".//button[text()='Далее']")
+    NEXT_BTN = (By.XPATH, ".//button[text()='Далее']")
 
     #  Выпадающий календарь "Когда привезти самокат" на форме "Про аренду"
     DATE_PICKER = (By.CLASS_NAME, "react-datepicker__input-container")

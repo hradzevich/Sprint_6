@@ -7,6 +7,16 @@ from selenium.webdriver.firefox.webdriver import WebDriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
+from selenium.webdriver.common.by import By
+
+
+# Локатор опции в выпадающем списке по значению
+@staticmethod
+def dropdown_option(value_text):
+    return (
+        By.XPATH,
+        "//button[contains(@class,'select-search__option')]//div[text()='{value_text}']",
+    )
 
 
 class BasePage:
@@ -64,3 +74,20 @@ class BasePage:
     @allure.step("Получить url текущей страницы")
     def get_current_url(self):
         return self.driver.current_url
+
+    # Локатор опции в выпадающем списке по значению
+    @staticmethod
+    def dropdown_option(value_text):
+        return (
+            By.XPATH,
+            f".//*[contains(text(), '{value_text}')]",
+        )
+
+    @allure.step("Выбрать значение из выпадающего списка")
+    def select_from_dropdown(self, field_locator, list_locator, value_text):
+        self.click_element(field_locator)
+        self.wait_for_element_is_visible(list_locator)
+        value_locator = self.dropdown_option(value_text)
+        self.wait_for_element_is_visible(value_locator)
+        self.scroll_to_element(value_locator)
+        self.click_element(value_locator)
