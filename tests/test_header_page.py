@@ -19,10 +19,15 @@ class TestHeaderPage:
         header_page.switch_tab()
         header_page.wait_for_url(DZEN_URL)
         current_url = header_page.get_current_url()
+        news_dzen_section = header_page.find_news_section_dzen()
 
         assert current_url.startswith(
             DZEN_URL
         ), f"Фактический URL страницы: {current_url}"
+        assert (
+            news_dzen_section.is_displayed()
+        ), "На текущей странице нет раздела 'Новости'"
+
 
     @allure.title(
         "Проверка редиректа со страницы заказа на главную страницу Самокат при нажатии на логотип Самоката."
@@ -36,5 +41,9 @@ class TestHeaderPage:
         header_page.click_scooter_logo()
         header_page.wait_for_url(MAIN_URL)
         current_url = header_page.get_current_url()
+        how_it_works_section_title = header_page.find_how_it_works_section()
 
         assert current_url == MAIN_URL, f"Фактический URL страницы: {current_url}"
+        assert (
+            how_it_works_section_title.is_displayed()
+        ), "Раздел 'Как это работает' не отображается на странице"

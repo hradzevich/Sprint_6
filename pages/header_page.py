@@ -15,6 +15,15 @@ class HeaderPage(BasePage):
     def click_yandex_logo(self):
         self.click_element(HeaderPageLocators.YANDEX_LOGO)
 
+    @allure.step("Найти раздел 'Новости' на главной странице Дзен")
+    def find_news_section_dzen(self):
+        return self.get_element(HeaderPageLocators.NEWS_SECTION_DZEN)
+    
+    @allure.step("Найти раздел 'Как это работает' на главной странице Самокат")
+    def find_how_it_works_section(self):
+        return self.get_element(HeaderPageLocators.HOW_IT_WORKS_SECTION_TITLE)
+    
+
     
 
     
