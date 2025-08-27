@@ -9,16 +9,6 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.by import By
 
-
-# Локатор опции в выпадающем списке по значению
-@staticmethod
-def dropdown_option(value_text):
-    return (
-        By.XPATH,
-        "//button[contains(@class,'select-search__option')]//div[text()='{value_text}']",
-    )
-
-
 class BasePage:
 
     # Инициализация страницы, создание объекта ожидания
