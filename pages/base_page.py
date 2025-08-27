@@ -8,6 +8,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
 
+
 class BasePage:
 
     # Инициализация страницы, создание объекта ожидания
@@ -15,9 +16,8 @@ class BasePage:
         self.driver = driver
         self.wait = WebDriverWait(driver, timeout)
 
-    @allure.step("Открыть страницу")
-    def open_page(self):
-        self.driver.get("https://qa-scooter.praktikum-services.ru/")
+    def open_page(self, url):
+        self.driver.get(url)
 
     @allure.step("Подождать видимости элемента")
     def wait_for_element_is_visible(self, locator):
@@ -51,3 +51,16 @@ class BasePage:
     def scroll_to_element(self, locator):
         element = self.wait_for_element_is_visible(locator)
         self.driver.execute_script("arguments[0].scrollIntoView();", element)
+
+    @allure.step("Переключиться на новую вкладку")
+    def switch_tab(self):
+        new_window = self.driver.window_handles[1]
+        self.driver.switch_to.window(new_window)
+
+    @allure.step("Подождать загрузки страницы")
+    def wait_for_url(self, url):
+        return self.wait.until(EC.url_contains(url))
+
+    @allure.step("Получить url текущей страницы")
+    def get_current_url(self):
+        return self.driver.current_url

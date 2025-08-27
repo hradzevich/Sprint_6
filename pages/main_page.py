@@ -14,6 +14,7 @@ class MainPage(BasePage):
 
     @allure.step("Раскрыть элемент выпадающего списка")
     def expand_accordion_item(self, index):
+        self.scroll_to_element(MainPageLocators.question_number(index))
         self.click_element(MainPageLocators.question_number(index))
 
     @allure.step("Получить текст вопроса в выпадающем списке")
