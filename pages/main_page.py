@@ -17,14 +17,14 @@ class MainPage(BasePage):
         self.scroll_to_element(MainPageLocators.question_number(index))
         self.click_element(MainPageLocators.question_number(index))
 
-    @allure.step("Получить текст вопроса в выпадающем списке")
+    @allure.step("Получить текст вопроса №{index} в разделе FAQ")
     def get_accordion_item_question(self, index):
         self.wait_for_element_is_visible(MainPageLocators.question_number(index))
         return self.get_text_on_element(MainPageLocators.question_number(index))
 
-    @allure.step("Получить текст ответа в выпадающем списке")
+    @allure.step("Получить текст ответа на вопрос №{index} в разделе FAQ")
     def get_accordion_item_answer(self, index):
         self.wait_for_element_is_visible(MainPageLocators.answer_number(index))
         return self.get_text_on_element(MainPageLocators.answer_number(index))
-
     
+

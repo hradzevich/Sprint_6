@@ -6,7 +6,8 @@ from helper import *
 from urls import MAIN_URL
 from locators.order_page_locators import OrderPageLocators
 
-
+@allure.feature("Заказ самоката")
+@allure.story("Успешное оформление заказа самоката")
 class TestOrderPage:
 
     test_data = [
@@ -22,7 +23,7 @@ class TestOrderPage:
         ),
     ]
 
-    @allure.title("Проверка успешного оформления заказа")
+    @allure.title("Проверка успешного оформления заказа самоката")
     @allure.description(
         "На главной старнице кликаем на кнопку 'Заказать', заполняем все поля валидными данными"
         "на форме 'Для кого самокат', кликаем на конпку 'Далее', заполняем валидными данными поля"

@@ -11,18 +11,18 @@ class OrderPage(BasePage):
         self.scroll_to_element(order_btn_locator)
         self.click_element(order_btn_locator)
 
-    @allure.step("Заполнить форму 'Для кого самокат'")
+    @allure.step("Заполнить форму 'Для кого самокат' и кликнуть на кнопку 'Далее'")
     def fill_in_user_details_section(self, personal_data: dict):
         self.input_text(OrderPageLocators.FIRST_NAME, personal_data["first_name"])
         self.input_text(OrderPageLocators.LAST_NAME, personal_data["last_name"])
         self.input_text(OrderPageLocators.ADDRESS, personal_data["address"])
-
         self.select_from_dropdown(
             OrderPageLocators.METRO_STATION,
             OrderPageLocators.METRO_STATION_LST,
             OrderPageLocators.dropdown_metro_option(personal_data["metro_station"]),
         )
         self.input_text(OrderPageLocators.PHONE_NUMBER, personal_data["phone_number"])
+
         self.click_element(OrderPageLocators.NEXT_BTN)
 
     @allure.step("Заполнить форму 'Про аренду'")
@@ -45,16 +45,13 @@ class OrderPage(BasePage):
                 self.click_element(OrderPageLocators.NEXT_IN_DATE_PICKER)
 
         self.click_element(OrderPageLocators.start_rent_day(start_day))
-
         self.select_from_dropdown(
             OrderPageLocators.RENTAL_PERIOD,
             OrderPageLocators.RENTAL_PERIOD_LST,
             OrderPageLocators.dropdown_rental_option(order_data["rental_days"]),
         )
-
         if order_data["color"] is not None:
             self.click_element(OrderPageLocators.color_option(order_data["color"]))
-
         if order_data["comment"] is not None:
             self.input_text(OrderPageLocators.COMMENT, order_data["comment"])
 
@@ -62,11 +59,12 @@ class OrderPage(BasePage):
     def click_place_order_btn(self):
         self.click_element(OrderPageLocators.ORDER_BTN)
 
-    @allure.step("Кликнуть кнопку 'Да' на форме 'Хотите оформить заказ?'")
+    @allure.step("Кликнуть кнопку 'Да' в окне 'Хотите оформить заказ?'")
     def click_submit_btn(self):
         self.wait_for_element_is_visible(OrderPageLocators.ORDER_CONFIRMATION_MODAL)
         self.click_element(OrderPageLocators.SUBMIT_BTN)
 
+    @allure.step("Получить сообщение о успешности фоформления заказа")
     def get_message_about_order(self):
         self.wait_for_element_is_visible(OrderPageLocators.ORDER_CREATED_MODAL)
         return self.get_text_on_element(OrderPageLocators.ORDER_CREATED_MESSAGE)
