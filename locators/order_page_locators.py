@@ -115,4 +115,4 @@ class OrderPageLocators:
     ORDER_CREATED_MODAL = (By.CLASS_NAME, "Order_Modal__YZ-d3")
 
     # Сообщение об успешном создании заказа
-    ORDER_CREATED_MESSAGE = (By.XPATH, ".//div[text()='Заказ оформлен']")
+    ORDER_CREATED_MESSAGE = (By.XPATH, ".//div[@class='Order_ModalHeader__3FDaJ']")

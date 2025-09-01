@@ -2,8 +2,14 @@ from data import rental_options, scooter_color
 from faker import Faker
 import random as r
 from datetime import datetime, timedelta
+from data import faq_section_data
 
 faker = Faker("ru_RU")
+
+# Преобразует словарь FAQ в список кортежей для параметризации pytest
+faq_section_data_pytest = []
+for index, data in faq_section_data.items():
+    faq_section_data_pytest.append((index, data["question"], data["answer"]))
 
 
 # Генерирует необходимые для заказа данные пользователя за исключением станции метро

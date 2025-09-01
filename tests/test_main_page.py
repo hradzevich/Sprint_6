@@ -1,7 +1,7 @@
 import allure
 import pytest
 from pages.main_page import MainPage
-from data import *
+from helper import faq_section_data_pytest
 from urls import MAIN_URL
 
 

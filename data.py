@@ -36,10 +36,6 @@ faq_section_data = {
     },
 }
 
-# Преобразуем словарь FAQ в список кортежей для параметризации pytest
-faq_section_data_pytest = []
-for index, data in faq_section_data.items():
-    faq_section_data_pytest.append((index, data["question"], data["answer"]))
 
 # Доступные варианты срока бронирования самоката
 rental_options = [
