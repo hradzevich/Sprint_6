@@ -17,15 +17,11 @@ class OrderPage(BasePage):
         self.input_text(OrderPageLocators.LAST_NAME, personal_data["last_name"])
         self.input_text(OrderPageLocators.ADDRESS, personal_data["address"])
 
-        self.click_element(OrderPageLocators.METRO_STATION)
-        self.wait_for_element_is_visible(OrderPageLocators.METRO_STATION_LST)
-        self.scroll_to_element(
-            OrderPageLocators.dropdown_metro_option(personal_data["metro_station"])
+        self.select_from_dropdown(
+            OrderPageLocators.METRO_STATION,
+            OrderPageLocators.METRO_STATION_LST,
+            OrderPageLocators.dropdown_metro_option(personal_data["metro_station"]),
         )
-        self.click_element(
-            OrderPageLocators.dropdown_metro_option(personal_data["metro_station"])
-        )
-
         self.input_text(OrderPageLocators.PHONE_NUMBER, personal_data["phone_number"])
         self.click_element(OrderPageLocators.NEXT_BTN)
 
@@ -49,13 +45,11 @@ class OrderPage(BasePage):
                 self.click_element(OrderPageLocators.NEXT_IN_DATE_PICKER)
 
         self.click_element(OrderPageLocators.start_rent_day(start_day))
-        self.click_element(OrderPageLocators.RENTAL_PERIOD)
-        self.wait_for_element_is_visible(OrderPageLocators.RENTAL_PERIOD_LST)
-        self.scroll_to_element(
-            OrderPageLocators.dropdown_rental_option(order_data["rental_days"])
-        )
-        self.click_element(
-            OrderPageLocators.dropdown_rental_option(order_data["rental_days"])
+
+        self.select_from_dropdown(
+            OrderPageLocators.RENTAL_PERIOD,
+            OrderPageLocators.RENTAL_PERIOD_LST,
+            OrderPageLocators.dropdown_rental_option(order_data["rental_days"]),
         )
 
         if order_data["color"] is not None:

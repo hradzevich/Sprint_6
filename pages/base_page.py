@@ -67,6 +67,13 @@ class BasePage:
     @allure.step("Получить url текущей страницы")
     def get_current_url(self):
         return self.driver.current_url
+    
+    @allure.step("Выбрать значение из выпадающего списка")
+    def select_from_dropdown(self, field_locator, list_locator, option_locator):
+        self.click_element(field_locator)
+        self.wait_for_element_is_visible(list_locator)
+        self.scroll_to_element(option_locator)
+        self.click_element(option_locator)
 
     @allure.step("Получить значение атрибута элемента")
     def get_attribute_value(self, locator, attribute):
