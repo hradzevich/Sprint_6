@@ -52,17 +52,46 @@ class OrderPageLocators:
     #  Кнопка "Далее" на форме "Для кого самокат"
     NEXT_BTN = (By.XPATH, ".//button[text()='Далее']")
 
-    #  Выпадающий календарь "Когда привезти самокат" на форме "Про аренду"
-    DATE_PICKER = (By.CLASS_NAME, "react-datepicker__input-container")
+    #  Поле с выпадающим календарем "Когда привезти самокат" на форме "Про аренду"
+    DATE_PICKER_FIELD = (By.CLASS_NAME, "react-datepicker__input-container")
 
-    #  Выпадающий список "Срок аренды" на форме "Про аренду"
+    #  Выпадающий календарь "Когда привезти самокат" на форме "Про аренду"
+    DATE_PICKER = (By.CLASS_NAME, "react-datepicker__month-container")
+
+    # Локатор даты начала аренды (день)
+    @staticmethod
+    def start_rent_day(day_value):
+        return (
+            By.XPATH,
+            f"//div[contains(@class,'react-datepicker__day') and text()='{day_value}']",
+        )
+
+    # Отображаемый месяц в календаре "Когда привезти самокат"
+    MONTH_IN_DATE_PICKER = (By.XPATH, ".//div[@class='react-datepicker__month']")
+
+    NEXT_IN_DATE_PICKER = (By.XPATH, ".//button[@aria-label='Next Month']")
+
+    #  Поле с выпадающим списком "Срок аренды" на форме "Про аренду"
     RENTAL_PERIOD = (By.CLASS_NAME, "Dropdown-control")
 
-    #  Чексбокс "Черный жемчуг" для выбора цвета самоката на форме "Про аренду"
-    BLACK_COLOR_CHOICE = (By.ID, "black")
+    #  Выпадающий список "Срок аренды" на форме "Про аренду"
+    RENTAL_PERIOD_LST = (By.CLASS_NAME, "Dropdown-menu")
 
-    #  Чексбокс "Серая безысходность" для выбора цвета самоката на форме "Про аренду"
-    GREY_COLOR_CHOICE = (By.ID, "grey")
+    # Локатор опции в выпадающем списке "Срок аренды" по значению
+    @staticmethod
+    def dropdown_rental_option(value_text):
+        return (
+            By.XPATH,
+            f".//div[@class='Dropdown-option' and text()='{value_text}']",
+        )
+
+    # Локатор опции цвета самоката
+    @staticmethod
+    def color_option(id_value):
+        return (
+            By.ID,
+            f"{id_value}",
+        )
 
     #  Поле "Комментарий для курьера" на форме "Про аренду"
     COMMENT = (By.XPATH, ".//input[@placeholder='Комментарий для курьера']")

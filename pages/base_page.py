@@ -67,3 +67,8 @@ class BasePage:
     @allure.step("Получить url текущей страницы")
     def get_current_url(self):
         return self.driver.current_url
+
+    @allure.step("Получить значение атрибута элемента")
+    def get_attribute_value(self, locator, attribute):
+        element = self.wait_for_element_is_visible(locator)
+        return element.get_attribute(attribute)
