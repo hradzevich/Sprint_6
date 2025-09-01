@@ -9,6 +9,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from selenium.webdriver.common.by import By
 
+
 class BasePage:
 
     # Инициализация страницы, создание объекта ожидания
@@ -50,7 +51,9 @@ class BasePage:
     @allure.step("Проскроллить до элемента")
     def scroll_to_element(self, locator):
         element = self.wait_for_element_is_visible(locator)
-        self.driver.execute_script("arguments[0].scrollIntoView();", element)
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView({block: 'center'});", element
+        )
 
     @allure.step("Переключиться на новую вкладку")
     def switch_tab(self):
@@ -64,20 +67,3 @@ class BasePage:
     @allure.step("Получить url текущей страницы")
     def get_current_url(self):
         return self.driver.current_url
-
-    # Локатор опции в выпадающем списке по значению
-    @staticmethod
-    def dropdown_option(value_text):
-        return (
-            By.XPATH,
-            f".//*[contains(text(), '{value_text}')]",
-        )
-
-    @allure.step("Выбрать значение из выпадающего списка")
-    def select_from_dropdown(self, field_locator, list_locator, value_text):
-        self.click_element(field_locator)
-        self.wait_for_element_is_visible(list_locator)
-        value_locator = self.dropdown_option(value_text)
-        self.wait_for_element_is_visible(value_locator)
-        self.scroll_to_element(value_locator)
-        self.click_element(value_locator)

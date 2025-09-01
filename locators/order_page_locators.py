@@ -32,8 +32,16 @@ class OrderPageLocators:
     #  Поле с выпадающим списком "Станция метро" на форме "Для кого самокат"
     METRO_STATION = (By.CLASS_NAME, "select-search__value")
 
-    #  Выпадающий список с автозаполнением "Станция метро" на форме "Для кого самокат"
-    METRO_STATION_LST = (By.CLASS_NAME, "select-search__select")
+    #  Выпадающий список "Станция метро" на форме "Для кого самокат"
+    METRO_STATION_LST = (By.XPATH, ".//ul[@class='select-search__options']")
+
+    # Локатор опции в выпадающем списке "Станция метро" по значению
+    @staticmethod
+    def dropdown_metro_option(value_text):
+        return (
+            By.XPATH,
+            f".//div[@class='select-search__select']//div[@class='Order_Text__2broi' and text()='{value_text}']",
+        )
 
     #  Поле "Телефон" на форме "Для кого самокат"
     PHONE_NUMBER = (
@@ -64,7 +72,7 @@ class OrderPageLocators:
         By.XPATH,
         ".//button[text()='Заказать' and contains(@class, 'Button_Middle__1CSJM')]",
     )
-    
+
     # Всплывающее окно "Хотите оформить заказ?"
     ORDER_CONFIRMATION_MODAL = (By.CLASS_NAME, "Order_Modal__YZ-d3")
 

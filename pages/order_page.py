@@ -16,11 +16,16 @@ class OrderPage(BasePage):
         self.input_text(OrderPageLocators.FIRST_NAME, personal_data["first_name"])
         self.input_text(OrderPageLocators.LAST_NAME, personal_data["last_name"])
         self.input_text(OrderPageLocators.ADDRESS, personal_data["address"])
-        self.select_from_dropdown(
-            OrderPageLocators.METRO_STATION,
-            OrderPageLocators.METRO_STATION_LST,
-            personal_data["metro_station"],
+
+        self.click_element(OrderPageLocators.METRO_STATION)
+        self.wait_for_element_is_visible(OrderPageLocators.METRO_STATION_LST)
+        self.scroll_to_element(
+            OrderPageLocators.dropdown_metro_option(personal_data["metro_station"])
         )
+        self.click_element(
+            OrderPageLocators.dropdown_metro_option(personal_data["metro_station"])
+        )
+
         self.input_text(OrderPageLocators.PHONE_NUMBER, personal_data["phone_number"])
         self.click_element(OrderPageLocators.NEXT_BTN)
 
