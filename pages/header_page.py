@@ -1,7 +1,6 @@
 import allure
 from pages.base_page import BasePage
 from locators.header_page_locators import HeaderPageLocators
-from data import *
 
 
 class HeaderPage(BasePage):

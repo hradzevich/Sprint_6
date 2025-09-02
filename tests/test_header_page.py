@@ -1,13 +1,11 @@
 import allure
-import pytest
 from pages.header_page import HeaderPage
 from urls import MAIN_URL, DZEN_URL, ORDER_URL
 
 
-@allure.feature("Редиректы")
-@allure.story("Редирект при нажатии на логотип")
 class TestHeaderPage:
-
+    @allure.label("feature", "Редиректы")
+    @allure.label("story", "Редирект при нажатии на логотип")
     @allure.title(
         "Проверка редиректа на главную страницу Дзена в новой вкладке при нажатии на логотип Яндекса."
     )

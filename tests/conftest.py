@@ -1,6 +1,5 @@
 # Файл используется для хранения фикстур Pytest,
 # которые применяются в автотестах сервиса «Яндекс.Самокат»
-import os
 import pytest
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options

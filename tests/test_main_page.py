@@ -4,9 +4,10 @@ from pages.main_page import MainPage
 from helper import faq_section_data_pytest
 from urls import MAIN_URL
 
-@allure.feature("Раздел 'Вопросы о важном'")
-@allure.story("Открытие вопросов и соответствие вопросам ответов")
+
 class TestMainPage:
+    @allure.label("feature", "Раздел 'Вопросы о важном'")
+    @allure.label("story", "Открытие вопросов и соответствие вопросам ответов")
     @allure.title(
         "Проверка соответствия текста ответа вопросу в выпадающем списке 'Вопросы о важном'"
     )

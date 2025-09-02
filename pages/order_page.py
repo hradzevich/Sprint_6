@@ -1,7 +1,6 @@
 import allure
 from pages.base_page import BasePage
 from locators.order_page_locators import OrderPageLocators
-from data import *
 
 
 class OrderPage(BasePage):
@@ -59,12 +58,12 @@ class OrderPage(BasePage):
     def click_place_order_btn(self):
         self.click_element(OrderPageLocators.ORDER_BTN)
 
-    @allure.step("Кликнуть кнопку 'Да' в окне 'Хотите оформить заказ?'")
+    @allure.step("Подтвердить оформление заказа кликом на кнопку 'Да' в окне 'Хотите оформить заказ?'")
     def click_submit_btn(self):
         self.wait_for_element_is_visible(OrderPageLocators.ORDER_CONFIRMATION_MODAL)
         self.click_element(OrderPageLocators.SUBMIT_BTN)
 
-    @allure.step("Получить сообщение о успешности фоформления заказа")
+    @allure.step("Получить сообщение о успешности оформления заказа")
     def get_message_about_order(self):
         self.wait_for_element_is_visible(OrderPageLocators.ORDER_CREATED_MODAL)
         return self.get_text_on_element(OrderPageLocators.ORDER_CREATED_MESSAGE)

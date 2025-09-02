@@ -6,8 +6,7 @@ from helper import *
 from urls import MAIN_URL
 from locators.order_page_locators import OrderPageLocators
 
-@allure.feature("Заказ самоката")
-@allure.story("Успешное оформление заказа самоката")
+
 class TestOrderPage:
 
     test_data = [
@@ -23,6 +22,8 @@ class TestOrderPage:
         ),
     ]
 
+    @allure.label("feature", "Заказ самоката")
+    @allure.label("story", "Успешное оформление заказа самоката")
     @allure.title("Проверка успешного оформления заказа самоката")
     @allure.description(
         "На главной старнице кликаем на кнопку 'Заказать', заполняем все поля валидными данными"
@@ -32,7 +33,9 @@ class TestOrderPage:
         "с сообщением об успешном создании заказа."
     )
     @pytest.mark.parametrize("order_btn_locator, personal_data, order_data", test_data)
-    def test_place_order_success(self, driver, order_btn_locator, personal_data, order_data):
+    def test_place_order_success(
+        self, driver, order_btn_locator, personal_data, order_data
+    ):
         order_page = OrderPage(driver)
         order_page.open_page(MAIN_URL)
         order_page.open_order_page(order_btn_locator)

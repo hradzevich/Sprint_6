@@ -1,8 +1,6 @@
 import allure
-from selenium.webdriver.support import expected_conditions as EC
 from pages.base_page import BasePage
 from locators.main_page_locators import MainPageLocators
-from data import *
 
 
 class MainPage(BasePage):
@@ -26,5 +24,3 @@ class MainPage(BasePage):
     def get_accordion_item_answer(self, index):
         self.wait_for_element_is_visible(MainPageLocators.answer_number(index))
         return self.get_text_on_element(MainPageLocators.answer_number(index))
-    
-

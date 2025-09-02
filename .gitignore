@@ -214,3 +214,10 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+# Allure results
+allure-results/
+
+# OS files
+.DS_Store
+Thumbs.db
