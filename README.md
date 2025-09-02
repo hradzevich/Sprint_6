@@ -45,10 +45,10 @@
     ```pip install -r requirements.txt```
 
 3. Запустить тесты с сохранением результатов для Allure:<br/>
-    ```pytest --alluredir=allure_results```
+    ```pytest --alluredir=allure-results```
 
 4. Сгенерировать html-отчёт в папку allure_report:<br/>
-    ```allure generate allure_results -o allure_report --clean```
+    ```allure generate allure-results -o allure_report --clean```
 
 5. Открыть готовый отчёт в браузере:<br/>
     ```allure open allure_report```
@@ -57,11 +57,11 @@
 ## <span style="color: cornflowerblue">Полезные команды</span>
 
 Очистить результаты прошлых запусков:<br/>
-    ```rm -rf allure_results allure_report```
+    ```rm -rf allure-results allure_report```
 
 Перегенерировать отчёт без запуска тестов (если тесты уже запускались и в папке allure_results есть данные):<br/>
-    ```allure generate allure_results -o allure_report --clean```
+    ```allure generate allure-results -o allure_report --clean```
     ```allure open allure_report```
 
 Быстрый просмотр отчёта без сохранения (отчёт откроется во временном режиме, готовая папка не создаётся):<br/>
-    ```allure serve allure_results```
+    ```allure serve allure-results```
