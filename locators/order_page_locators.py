@@ -69,6 +69,7 @@ class OrderPageLocators:
     # Отображаемый месяц в календаре "Когда привезти самокат"
     MONTH_IN_DATE_PICKER = (By.XPATH, ".//div[@class='react-datepicker__month']")
 
+    # Кнопка для перехода на следующий месяц в календаре "Когда привезти самокат"
     NEXT_IN_DATE_PICKER = (By.XPATH, ".//button[@aria-label='Next Month']")
 
     #  Поле с выпадающим списком "Срок аренды" на форме "Про аренду"

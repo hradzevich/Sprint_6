@@ -1,6 +1,6 @@
 # <span style= "color: yellow">**Яндекс.Самокат Autotests**</span> 
 
-Это учебный проект Yandex.Practicum содержит автотесты на Python содержит автотесты для учебного сервиса «Яндекс.Самокат».
+Это учебный проект Yandex.Practicum содержит автотесты на Python для учебного сервиса «Яндекс.Самокат».
 
 ## <span style= "color: cornflowerblue">Реализованные тесты:</span> 
 

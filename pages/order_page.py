@@ -58,8 +58,10 @@ class OrderPage(BasePage):
     def click_place_order_btn(self):
         self.click_element(OrderPageLocators.ORDER_BTN)
 
-    @allure.step("Подтвердить оформление заказа кликом на кнопку 'Да' в окне 'Хотите оформить заказ?'")
-    def click_submit_btn(self):
+    @allure.step(
+        "Подтвердить оформление заказа кликом на кнопку 'Да' в окне 'Хотите оформить заказ?'"
+    )
+    def submit_order(self):
         self.wait_for_element_is_visible(OrderPageLocators.ORDER_CONFIRMATION_MODAL)
         self.click_element(OrderPageLocators.SUBMIT_BTN)
 

@@ -28,7 +28,7 @@ class TestOrderPage:
     @allure.title("Проверка успешного оформления заказа самоката")
     @allure.description(
         "На главной странице кликаем на кнопку 'Заказать', заполняем все поля валидными данными"
-        "на форме 'Для кого самокат', кликаем на конпку 'Далее', заполняем валидными данными поля"
+        "на форме 'Для кого самокат', кликаем на кнопку 'Далее', заполняем валидными данными поля"
         "формы 'Про аренду', кликаем на кнопку 'Заказать', кликаем на кнопку 'Да' "
         "во всплывающем окне 'Хотите оформить заказ?' и проверяем, что появилось всплывающее окно"
         "с сообщением об успешном создании заказа."
@@ -43,7 +43,7 @@ class TestOrderPage:
         order_page.fill_in_user_details_section(personal_data)
         order_page.fill_in_order_details_section(order_data)
         order_page.click_place_order_btn()
-        order_page.click_submit_btn()
+        order_page.submit_order()
         actual_message = order_page.get_message_about_order()
 
         assert (
