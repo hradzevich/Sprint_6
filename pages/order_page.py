@@ -32,7 +32,7 @@ class OrderPage(BasePage):
         start_month = order_data["start_date"].month
         start_year = order_data["start_date"].year
 
-        while True:
+        for _ in range(12):
             if (
                 self.get_attribute_value(
                     OrderPageLocators.MONTH_IN_DATE_PICKER, "aria-label"
